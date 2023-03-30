@@ -149,5 +149,5 @@ app.get("/directors/:directorId/movies/", async (request, response) => {
   moviesOfDirectorArray = moviesOfDirectorArray.map((eachObject) =>
     convertMovieTable(eachObject)
   );
-  response.send(sqlQuery);
+  response.send(moviesOfDirectorArray);
 });
