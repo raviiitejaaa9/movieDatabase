@@ -145,9 +145,9 @@ app.get("/directors/:directorId/movies/", async (request, response) => {
     HAVING 
         new_table.director_id = ${directorId};`;
   console.log(sqlQuery);
-  //let moviesOfDirectorArray = await db.all(sqlQuery);
-  //moviesOfDirectorArray = moviesOfDirectorArray.map((eachObject) =>
-  //  convertMovieTable(eachObject)
-  //);
+  let moviesOfDirectorArray = await db.all(sqlQuery);
+  moviesOfDirectorArray = moviesOfDirectorArray.map((eachObject) =>
+    convertMovieTable(eachObject)
+  );
   response.send(sqlQuery);
 });
