@@ -142,7 +142,7 @@ app.get("/directors/:directorId/movies/", async (request, response) => {
     FROM director 
         LEFT JOIN movie ON 
         movie.director_id = director.director_id AS new_table
-    HAVING 
+    WHERE 
         new_table.director_id = ${directorId};`;
   console.log(sqlQuery);
   let moviesOfDirectorArray = await db.all(sqlQuery);
